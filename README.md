@@ -1,9 +1,11 @@
 
-bbr: an R package for fetching data from basketball-reference
-=============================================================
+bbr: basketball-reference data in R
+===================================
+
+[![Travis-CI Build Status](https://travis-ci.org/mbjoseph/bbr.svg?branch=master)](https://travis-ci.org/mbjoseph/bbr) [![Coverage Status](https://img.shields.io/codecov/c/github/mbjoseph/bbr/master.svg)](https://codecov.io/github/mbjoseph/bbr?branch=master)
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-The bbr package is designed to quickly fetch tidy data from www.basketball-reference.com
+The bbr package is designed to quickly fetch tidy data from www.basketball-reference.com. This package is actively under development and the interface will change as new features are added.
 
 Installation
 ------------
