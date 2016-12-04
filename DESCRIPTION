@@ -1,0 +1,18 @@
+Package: bbr
+Type: Package
+Title: Scrapes data from basketball-reference.com
+Version: 0.1.0
+Author: Max Joseph
+Maintainer: Max Joseph <maxwellbjoseph@gmail.com>
+Description: Fetches data from basketball-reference.com.
+    This package is actively under development, and the interface is likely to
+    change as new features are added!
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Imports:
+    rvest,
+    xml2
+RoxygenNote: 5.0.1
+Suggests: testthat,
+    covr
