@@ -7,7 +7,7 @@
 #' rows (one row for each team).
 #'
 #'
-#' @param year The season to collect data for. If you want the 2016-2017 data,
+#' @param year Which season do you want data for? If you want the 2016-2017 data,
 #' use the latter year (2017).
 #' @return A data.frame with a row for each player X team combo in that season.
 #'
@@ -44,6 +44,8 @@
 #' \item{tov}{Turnovers}
 #' \item{pf}{Personal fouls}
 #' \item{pts}{Points made}
+#' \item{start_year}{Year season began}
+#' \item{end_year}{Year seson ended}
 #' }
 #'
 #'
@@ -63,7 +65,10 @@ get_season <- function(year) {
   html <- xml2::read_html(url)
   node <- rvest::html_node(html, "table")
   table <- rvest::html_table(node, header = TRUE)
-  parse_season_table(table)
+  d <- parse_season_table(table)
+  d$start_year <- year - 1
+  d$end_year <- year
+  d
 }
 
 parse_season_table <- function(table) {

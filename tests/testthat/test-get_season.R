@@ -12,7 +12,7 @@ test_that("Years in the future raise errors", {
 test_that("get_season returns the expected number of rows & cols for 2010", {
   twentyten_data <- get_season(2010)
   expect_equal(nrow(twentyten_data), 578)
-  expect_equal(ncol(twentyten_data), 29)
+  expect_equal(ncol(twentyten_data), 31)
 })
 
 test_that("maybe_as_numeric converts chars to numbers only when appropriate", {

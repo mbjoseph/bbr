@@ -7,19 +7,12 @@
 get_season(year)
 }
 \arguments{
-\item{year}{The season to collect data for. If you want the 2016-2017 data,
+\item{year}{Which season do you want data for? If you want the 2016-2017 data,
 use the latter year (2017).}
 }
 \value{
 A data.frame with a row for each player X team combo in that season.
-}
-\description{
-This function retrieves NBA player data for a specific season, specified by
-year. There will be one row per player X team combination. That is, if a
-player played for multiple teams in one season, they will show up on multiple
-rows (one row for each team).
-}
-\details{
+
 The columns include:
 
 \describe{
@@ -53,11 +46,17 @@ pointers are worth one more point than two pointers)}
 \item{tov}{Turnovers}
 \item{pf}{Personal fouls}
 \item{pts}{Points made}
+\item{start_year}{Year season began}
+\item{end_year}{Year seson ended}
 }
+}
+\description{
+This function retrieves NBA player data for a specific season, specified by
+year. There will be one row per player X team combination. That is, if a
+player played for multiple teams in one season, they will show up on multiple
+rows (one row for each team).
 }
 \examples{
-\dontrun{
-get_season(2010)
-}
+d <- get_season(2010)
 }
 
