@@ -21,3 +21,8 @@ test_that("maybe_as_numeric converts chars to numbers only when appropriate", {
   expect_is(maybe_as_numeric(should_convert), "numeric")
   expect_is(maybe_as_numeric(should_not_convert), "character")
 })
+
+test_that("empty_string_to_na() replaces empty strings with NAs", {
+  x <- rep("", 20)
+  expect_equal(empty_string_to_na(x), rep(NA, 20))
+})
