@@ -2,7 +2,7 @@
 bbr: basketball-reference data in R
 ===================================
 
-[![Travis-CI Build Status](https://travis-ci.org/mbjoseph/bbr.svg?branch=master)](https://travis-ci.org/mbjoseph/bbr) [![Coverage Status](https://img.shields.io/codecov/c/github/mbjoseph/bbr/master.svg)](https://codecov.io/github/mbjoseph/bbr?branch=master) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/bbr)](https://cran.r-project.org/package=bbr) [![Licence](https://img.shields.io/badge/licence-GPL--3-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-3.0.html) [![Last-changedate](https://img.shields.io/badge/last%20change-2016--12--08-brightgreen.svg)](/commits/master)
+[![Travis-CI Build Status](https://travis-ci.org/mbjoseph/bbr.svg?branch=master)](https://travis-ci.org/mbjoseph/bbr) [![Coverage Status](https://img.shields.io/codecov/c/github/mbjoseph/bbr/master.svg)](https://codecov.io/github/mbjoseph/bbr?branch=master) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/bbr)](https://cran.r-project.org/package=bbr) [![Licence](https://img.shields.io/badge/licence-GPL--3-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-3.0.html) [![Last-changedate](https://img.shields.io/badge/last%20change-2016--12--15-brightgreen.svg)](/commits/master)
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 The bbr package is designed to quickly fetch tidy data from www.basketball-reference.com. This package is actively under development and the interface will change as new features are added.
@@ -16,6 +16,8 @@ devtools::install_github("mbjoseph/bbr")
 
 Example usage
 -------------
+
+The `get_season` function retrieves season summary data for one season.
 
 ``` r
 library(bbr)
@@ -56,3 +58,20 @@ str(ninetyone)
     ##  $ pts        : num  135 942 285 1752 1104 ...
     ##  $ start_year : num  1990 1990 1990 1990 1990 1990 1990 1990 1990 1990 ...
     ##  $ end_year   : num  1991 1991 1991 1991 1991 ...
+
+The `get_players` function gets player data for individuals by last initial.
+
+``` r
+a_data <- get_players("A")
+str(a_data)
+```
+
+    ## 'data.frame':    151 obs. of  8 variables:
+    ##  $ player    : chr  "Alaa Abdelnaby" "Zaid Abdul-Aziz" "Kareem Abdul-Jabbar" "Mahmoud Abdul-Rauf" ...
+    ##  $ from      : int  1991 1969 1970 1991 1998 1997 1977 1957 1947 2017 ...
+    ##  $ to        : int  1995 1978 1989 2001 2003 2008 1981 1957 1948 2017 ...
+    ##  $ pos       : chr  "F-C" "C-F" "C" "G" ...
+    ##  $ ht        : chr  "6-10" "6-9" "7-2" "6-1" ...
+    ##  $ wt        : int  240 235 225 162 223 225 220 180 195 190 ...
+    ##  $ birth.date: chr  "June 24, 1968" "April 7, 1946" "April 16, 1947" "March 9, 1969" ...
+    ##  $ college   : chr  "Duke University" "Iowa State University" "University of California, Los Angeles" "Louisiana State University" ...

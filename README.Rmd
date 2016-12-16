@@ -17,15 +17,24 @@ This package is actively under development and the interface will change as new 
 
 ## Installation
 
-```{r, eval=FALSE}
+```{r, eval = FALSE}
 devtools::install_github("mbjoseph/bbr")
 ```
 
 ## Example usage
+
+The `get_season` function retrieves season summary data for one season. 
 
 ```{r, echo = TRUE}
 library(bbr)
 
 ninetyone <- get_season(1991)
 str(ninetyone)
+```
+
+The `get_players` function gets player data for individuals by last initial.
+
+```{r, echo = TRUE}
+a_data <- get_players("A")
+str(a_data)
 ```
