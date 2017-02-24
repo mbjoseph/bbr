@@ -10,5 +10,5 @@ test_that("Multiple initials raise errors", {
 
 test_that("get_players returns the expected number of columns", {
   a_data <- get_players("a")
-  expect_equal(ncol(a_data), 8)
+  expect_equal(ncol(a_data), 9)
 })
