@@ -20,20 +20,30 @@
 #' }
 #'
 #' @examples
-#' d <- get_players("A")
+#' d <- get_players("Z")
 #'
 #' @export
 get_players <- function(initial) {
   stopifnot(nchar(initial) == 1)
   stopifnot(grepl("[[:alpha:]]", initial))
+  initial <- tolower(initial)
 
   url <- paste0("http://www.basketball-reference.com/players/",
-                tolower(initial), "/")
+                initial, "/")
   html <- xml2::read_html(url)
   node <- rvest::html_node(html, "table")
+
   table <- rvest::html_table(node, header = TRUE)
   names(table) <- tolower(names(table))
+
   table$player <- gsub("\\*", "", table$player)
   converted <- lapply(table, empty_string_to_na)
+
+  links <- rvest::html_nodes(html, "th a")
+  suffix <- rvest::html_attr(links, name = "href")
+  suffix <- gsub(paste0("/players/[[:alpha:]]/"), "", suffix)
+  converted$slug <- gsub(".html", "", suffix)
+  names(converted) <- gsub(" ", "_", names(converted))
+
   as.data.frame(converted, stringsAsFactors = FALSE)
 }

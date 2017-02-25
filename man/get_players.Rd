@@ -30,7 +30,7 @@ The columns include:
 This function retrieves NBA player data for players by last initial
 }
 \examples{
-d <- get_players("A")
+d <- get_players("Z")
 
 }
 
