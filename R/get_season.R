@@ -77,10 +77,6 @@ parse_season_table <- function(table) {
   converted <- lapply(table, maybe_as_numeric)
   converted <- lapply(converted, empty_string_to_na)
   df <- as.data.frame(converted, stringsAsFactors = FALSE)
-  df <- df[, !(names(df) == "Rk")] # remove "Rank" column
-  names(df) <- gsub("\\.", "_pct", names(df))
-  names(df) <- gsub("X2", "two_", names(df))
-  names(df) <- gsub("X3", "three_", names(df))
-  names(df) <- tolower(names(df))
+  df <- clean_colnames(df)
   df
 }

@@ -15,3 +15,14 @@ empty_string_to_na <- function(x) {
   }
   res
 }
+
+clean_colnames <- function(df) {
+  # clean up column names for a data frame
+  stopifnot(is.data.frame(df))
+  df <- df[!(names(df) == "Rk")] # remove "Rank" column
+  names(df) <- gsub("\\.", "_pct", names(df))
+  names(df) <- gsub("X2", "two_", names(df))
+  names(df) <- gsub("X3", "three_", names(df))
+  names(df) <- tolower(names(df))
+  df
+}
