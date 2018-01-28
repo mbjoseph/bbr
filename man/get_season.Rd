@@ -59,4 +59,3 @@ rows (one row for each team).
 \examples{
 d <- get_season(2010)
 }
-
