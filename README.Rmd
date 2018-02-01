@@ -38,3 +38,15 @@ The `get_players` function gets player data for individuals by last initial.
 a_data <- get_players("A")
 str(a_data)
 ```
+
+The `get_player_data` function returns data for each season that a player 
+played. As an argument, this function takes a slug for the player you're 
+interested in. This can be found using the `get_players()` function, and is 
+part of the URL to the data of a player, e.g., if the URL is 
+https://www.basketball-reference.com/players/a/abdelal01.html then the slug is 
+abdelal01.
+
+```{r, echo = TRUE}
+abdelnaby_d <- get_player_data('abdelal01')
+str(abdelnaby_d)
+```
